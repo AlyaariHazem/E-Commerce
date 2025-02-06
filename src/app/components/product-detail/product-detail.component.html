@@ -1,0 +1,25 @@
+<div *ngIf="product" class="product-container">
+    <!-- Product Image Section -->
+    <div class="product-image">
+        <img [src]="product.image" alt="{{ product.name }}" />
+    </div>
+
+    <!-- Product Information Section -->
+    <div class="product-info">
+        <h2>{{ product.name }}</h2>
+        <p class="description">{{ product.description || 'No description available' }}</p>
+        <p class="price">$ {{ product.price }}</p>
+
+        <!-- Add to Cart Button -->
+        <button class="cart-button" (click)="addToCart()">🛒 Add to Cart</button>
+
+        <!-- Back to Product List Button -->
+        <button class="back-button" (click)="goBack()">⬅ Back to Products</button>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+            <button class="nav-button prev" (click)="goToPreviousProduct()">⬅ Previous</button>
+            <button class="nav-button next" (click)="goToNextProduct()">Next ➡️</button>
+        </div>
+    </div>
+</div>

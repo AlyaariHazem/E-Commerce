@@ -1,0 +1,55 @@
+.footer-toolbar {
+    /* Complimentary gradient or a solid color (your choice) */
+    background: linear-gradient(90deg, #42a5f5 0%, #2196f3 100%);
+    color: #fff;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  
+    /* Align items center, give some horizontal padding */
+    display: flex;
+    align-items: center;
+    height: 56px;
+    padding: 0 24px;
+  
+    /* If you want it to remain at bottom of viewport on short pages:
+     * position: fixed;
+     * bottom: 0;
+     * left: 0;
+     * width: 100%;
+     */
+  }
+  .divlober{
+    color: #eee;
+    text-decoration: none;
+  }
+  .footer-text {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+  
+  .social-icons {
+    display: flex;
+    align-items: center;
+  
+    a {
+      display: inline-flex;
+      align-items: center;
+      margin: 0 8px;
+      color: #fff;
+      text-decoration: none;
+      transition: opacity 0.2s ease-in-out;
+  
+      &:hover {
+        opacity: 0.8;
+      }
+  
+      /* If you want icons bigger or smaller */
+      mat-icon {
+        font-size: 24px;
+      }
+    }
+  }
+  

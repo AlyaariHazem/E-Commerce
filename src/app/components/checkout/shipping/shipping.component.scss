@@ -1,0 +1,71 @@
+/* Container Styling */
+.shipping-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Title Styling */
+h3 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Form Layout */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Material Form Field Styling */
+mat-form-field {
+  width: 100%;
+
+  .mat-form-field-outline {
+    border-radius: 10px; /* Rounded corners for outline */
+  }
+}
+
+/* Action Button */
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white!important;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Subtle hover lift effect */
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .shipping-container {
+    padding: 20px;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}

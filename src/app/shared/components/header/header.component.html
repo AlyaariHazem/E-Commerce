@@ -1,0 +1,12 @@
+<mat-toolbar class="header-toolbar" dir="rtl">
+    <!-- Logo / Brand -->
+    <a class="brand" routerLink="/">My E-Commerce</a>
+
+    <!-- Spacer pushes nav items to the right -->
+    <span class="spacer"></span>
+
+    <!-- Navigation Items -->
+    <a (click)="navigate('checkout')" mat-button routerLink="/checkout">Checkout</a>
+    <a (click)="navigate('cart')" mat-button routerLink="/cart">Cart</a>
+    <a (click)="navigate('')">Home</a>
+</mat-toolbar>

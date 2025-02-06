@@ -1,0 +1,41 @@
+.header-toolbar {
+  /* A subtle, modern gradient for the background */
+  background: linear-gradient(90deg, #2196f3 0%, #42a5f5 100%);
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* Align items center vertically, apply padding horizontally */
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 24px;
+}
+a{
+  cursor: pointer;
+  margin-right: 16px; 
+}
+
+.brand {
+  font-weight: 600;
+  font-size: 1.5rem; /* Slightly larger than default for emphasis */
+  text-decoration: none;
+  color: #fff; /* Ensure the text is white on the gradient */
+  cursor: pointer;
+}
+
+.spacer {
+  flex: 1; /* This forces navigation items to align to the right */
+}
+
+/* Style Material buttons inside the toolbar */
+::ng-deep .header-toolbar a.mat-button {
+  color: #fff !important; /* Override default text color */
+  text-transform: uppercase; /* Optional: all caps */
+  font-weight: 500;
+  margin-left: 8px; /* Spacing between links */
+}
+
+/* Hover effect on buttons */
+::ng-deep .header-toolbar a.mat-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

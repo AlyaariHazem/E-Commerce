@@ -1,0 +1,36 @@
+@if (cartItems.length > 0) {
+<div class="cart-wrapper">
+    <h2>🛒 My Cart</h2>
+
+    <!-- Cart Item Grid -->
+    <div class="cart-container">
+        <div *ngFor="let item of cartItems" class="cart-item-card">
+            <div class="cart-item-card-body">
+                <img [src]="item.image" alt="{{ item.name }}" class="cart-item-image" />
+                <div class="cart-item-info">
+                    <h3>{{ item.name }}</h3>
+                    <p class="price">${{ item.price }}</p>
+
+                    <!-- Quantity Controls -->
+                    <div class="quantity-controls">
+                        <button (click)="decreaseQty(item)" [disabled]="(item.quantity ?? 0) <= 1">-</button>
+                        <span class="quantity">{{ item.quantity }}</span>
+                        <button (click)="increaseQty(item)">+</button>
+                    </div>
+
+                    <!-- Remove Item Button -->
+                    <button (click)="removeItem(item.id)" class="remove-button">🗑 Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Summary -->
+    <div class="cart-total">
+        <h3>Total: ${{ getTotalPrice() }}</h3>
+        <button (click)="proceedToCheckout()" class="checkout-button">✅ Proceed to Checkout</button>
+    </div>
+</div>
+} @else {
+<p class="empty-cart">Your cart is empty. 🛒</p>
+}
