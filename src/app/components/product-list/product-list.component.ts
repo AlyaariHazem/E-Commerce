@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { ProductService } from '../../core/services/product.service';
@@ -15,9 +15,9 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class ProductListComponent implements OnInit {
   currentPage = 0;
-  pageSize = 8; // Number of items per page
+  pageSize = 8;
   totalProducts = 0;
-  products: Product[] = []; // Fixed typo from prodaucts to products
+  products: Product[] = [];
 
   productService = inject(ProductService);
 
@@ -39,7 +39,7 @@ export class ProductListComponent implements OnInit {
   onPageChange(event: PageEvent): void {
     this.currentPage = event.pageIndex;
     this.pageSize = event.pageSize;
-    this.loadProducts(); // Reload products based on the current page
+    this.loadProducts();
   }
 
   viewProduct(productId: number): void {
