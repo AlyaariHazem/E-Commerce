@@ -1,55 +1,132 @@
-.footer-toolbar {
-    /* Complimentary gradient or a solid color (your choice) */
-    background: linear-gradient(90deg, #42a5f5 0%, #2196f3 100%);
-    color: #fff;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-  
-    /* Align items center, give some horizontal padding */
-    display: flex;
-    align-items: center;
-    height: 56px;
-    padding: 0 24px;
-  
-    /* If you want it to remain at bottom of viewport on short pages:
-     * position: fixed;
-     * bottom: 0;
-     * left: 0;
-     * width: 100%;
-     */
+footer {
+  background: linear-gradient(90deg, #2196f3 0%, #42a5f5 100%);
+  padding: 10px;
+  margin-top: 1rem;
+  text-align: center;
+  color: white;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
   }
-  .divlober{
-    color: #ffcccc;
-    text-decoration: none;
+}
+
+.footer-info p {
+  margin: 5px 0;
+}
+
+.footer-info .heart {
+  color: #e74c3c;
+}
+
+.footer-info a {
+  color: #a9ffee;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-info a:hover {
+  color: #a1ffec;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social a {
+  color: #101c1f;
+  font-size: 1.8rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-social a:hover {
+  color: #d6fef6;
+  transform: scale(1.1);
+}
+
+.footer-social a:focus {
+  outline: none;
+}
+
+.footer-social i {
+  font-size: 1.8rem;
+}
+
+.fa-brands{
+  color: white!important;
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
   }
-  .footer-text {
-    font-size: 0.9rem;
-    font-weight: 400;
-  }
-  
-  .spacer {
-    flex: 1;
-  }
-  
-  .social-icons {
-    display: flex;
-    align-items: center;
-  
-    a {
-      display: inline-flex;
-      align-items: center;
-      margin: 0 8px;
-      color: #fff;
-      text-decoration: none;
-      transition: opacity 0.2s ease-in-out;
-  
-      &:hover {
-        opacity: 0.8;
-      }
-  
-      /* If you want icons bigger or smaller */
-      mat-icon {
-        font-size: 24px;
-      }
-    }
-  }
-  
+}
+
+.footer-info p {
+  margin: 5px 0;
+}
+
+.footer-info .heart {
+  color: #e74c3c;
+}
+
+.footer-info a {
+  color: #acfbeb;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-info a:hover {
+  color: #b7fff1;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social a {
+  color: #747474;
+  font-size: 1.8rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-social a:hover {
+  color: #393939;
+  transform: scale(1.1);
+}
+
+.footer-social a:focus {
+  outline: none;
+}
+
+.footer-social i {
+  font-size: 1.8rem;
+}

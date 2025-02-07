@@ -7,6 +7,16 @@
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
+
+  /* Medium screens: slightly reduce padding */
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+
+  /* Small screens: further reduce padding */
+  @media (max-width: 480px) {
+    padding: 20px;
+  }
 }
 
 /* Header */
@@ -15,6 +25,15 @@ h3 {
   color: #007bff;
   font-weight: bold;
   margin-bottom: 20px;
+
+  /* Medium & smaller screens */
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.6rem;
+  }
 }
 
 /* Form Layout */
@@ -27,6 +46,7 @@ form {
 /* Material Form Fields */
 mat-form-field {
   width: 100%;
+
   .mat-form-field-outline {
     border-radius: 8px;
   }
@@ -36,8 +56,18 @@ mat-form-field {
 .row {
   display: flex;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
+
+  /* Stack vertically on very small screens */
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
 }
 
+/* Half-Width Fields */
 .half-width {
   flex: 1;
 }
@@ -48,8 +78,13 @@ mat-form-field {
   justify-content: space-between;
   gap: 10px;
   margin-top: 20px;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
 }
 
+/* Buttons */
 button {
   padding: 12px 24px;
   font-size: 1.1rem;
@@ -60,29 +95,15 @@ button {
   &:hover {
     transform: translateY(-2px);
   }
+
+  /* On very small screens, make buttons full width for easier tapping */
+  @media (max-width: 480px) {
+    width: 100% !important;
+  }
 }
 
 /* Disabled Button Styling */
 button[disabled] {
   background-color: #ccc !important;
   cursor: not-allowed;
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
-  .payment-container {
-    padding: 20px;
-  }
-
-  h3 {
-    font-size: 1.6rem;
-  }
-
-  .row {
-    flex-direction: column;
-  }
-
-  button {
-    width: 100%;
-  }
 }

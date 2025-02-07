@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 export const routes: Routes = [
   { path: '', component: ProductListComponent },
+  { path: 'home', component: ProductListComponent },
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'cart', component: CartComponent },
 

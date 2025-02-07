@@ -6,8 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  isMenuActive: boolean = false;
 
-  navigate(path: string) {
-    window.location.href = path;
+  toggleMenu() {
+    this.isMenuActive = !this.isMenuActive;
   }
 }
