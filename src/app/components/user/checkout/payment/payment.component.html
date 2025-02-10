@@ -1,0 +1,39 @@
+<div class="payment-container">
+    <h3>💳 Step 2: Payment Method</h3>
+
+    <form #paymentForm="ngForm" (ngSubmit)="proceedToReview()">
+        <!-- Cardholder Name -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Cardholder Name</mat-label>
+            <input matInput type="text" [(ngModel)]="paymentDetails.cardHolder" name="cardHolder" required />
+        </mat-form-field>
+
+        <!-- Credit Card Number -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Credit Card Number</mat-label>
+            <input matInput type="text" maxlength="16" [(ngModel)]="paymentDetails.cardNumber" name="cardNumber"
+                required />
+        </mat-form-field>
+
+        <!-- Expiry Date & CVV -->
+        <div class="row">
+            <mat-form-field appearance="outline" class="half-width">
+                <mat-label>Expiry Date (MM/YY)</mat-label>
+                <input matInput type="text" placeholder="MM/YY" [(ngModel)]="paymentDetails.expiryDate"
+                    name="expiryDate" required />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="half-width">
+                <mat-label>CVV</mat-label>
+                <input matInput type="password" maxlength="3" [(ngModel)]="paymentDetails.cvv" name="cvv" required />
+            </mat-form-field>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="actions">
+            <button mat-stroked-button color="warn" routerLink="/user/checkout/shipping">⬅ Shipping</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!paymentForm.valid">Next: Review
+                ➡️</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,23 @@
+<header>
+    <nav dir="rtl">
+      <div class="logo">E-Commerce</div>
+      <button class="menu-toggle" (click)="toggleMenu()">
+        &#9776; <!-- Hamburger icon -->
+      </button>
+      <ul class="nav-links" [class.active]="isMenuActive">
+        <li>
+          <a mat-button routerLinkActive="active" (click)="logout()">logout</a>
+        </li>
+        <li>
+          <a mat-button routerLinkActive="active"  routerLink="/user/checkout">Checkout</a>
+        </li>        
+        <li>
+            <a mat-button routerLinkActive="active"  routerLink="/user/cart">Cart</a>
+        </li>
+        <li>
+            <a mat-button routerLinkActive="active"  routerLink="/user/home">Home</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  

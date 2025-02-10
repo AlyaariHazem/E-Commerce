@@ -1,0 +1,132 @@
+footer {
+  background: linear-gradient(90deg, #2196f3 0%, #42a5f5 100%);
+  padding: 10px;
+  margin-top: 1rem;
+  text-align: center;
+  color: white;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.footer-info p {
+  margin: 5px 0;
+}
+
+.footer-info .heart {
+  color: #e74c3c;
+}
+
+.footer-info a {
+  color: #a9ffee;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-info a:hover {
+  color: #a1ffec;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social a {
+  color: #101c1f;
+  font-size: 1.8rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-social a:hover {
+  color: #d6fef6;
+  transform: scale(1.1);
+}
+
+.footer-social a:focus {
+  outline: none;
+}
+
+.footer-social i {
+  font-size: 1.8rem;
+}
+
+.fa-brands{
+  color: white!important;
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.footer-info p {
+  margin: 5px 0;
+}
+
+.footer-info .heart {
+  color: #e74c3c;
+}
+
+.footer-info a {
+  color: #acfbeb;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-info a:hover {
+  color: #b7fff1;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social a {
+  color: #747474;
+  font-size: 1.8rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-social a:hover {
+  color: #393939;
+  transform: scale(1.1);
+}
+
+.footer-social a:focus {
+  outline: none;
+}
+
+.footer-social i {
+  font-size: 1.8rem;
+}

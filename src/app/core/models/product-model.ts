@@ -6,3 +6,8 @@ export interface Product {
   description?: string;
   quantity?: number| undefined;
 }
+
+export interface User{
+  name: string;
+  password:string;
+}

@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Login / Register</h2>
+<mat-dialog-content>
+  <form #loginForm="ngForm">
+    <mat-form-field>
+      <input matInput placeholder="Username" [(ngModel)]="user.name" name="username" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password" required>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close type="button">Cancel</button>
+  <button mat-button color="primary" (click)="login(loginForm)" type="button">Login</button>
+  <button mat-button color="accent" (click)="register(loginForm)" type="button">Register</button>
+</mat-dialog-actions>

@@ -1,0 +1,23 @@
+<div class="review-container">
+    <h3>✅ Step 3: Review Your Order</h3>
+    <p class="review-instructions">Please confirm your shipping and payment details before placing your order.</p>
+
+    <!-- Order Summary Section -->
+    <div class="order-summary">
+        <div class="summary-item">
+            <h4>📦 Shipping Address</h4>
+            <p>{{ shippingAddress }}</p>
+        </div>
+
+        <div class="summary-item">
+            <h4>💳 Payment Method</h4>
+            <p>{{ paymentMethod }}</p>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+        <button mat-stroked-button color="warn" routerLink="/user/checkout/payment">⬅ Back to Payment</button>
+        <button mat-raised-button color="primary" (click)="confirmOrder()">✅ Confirm Order</button>
+    </div>
+</div>

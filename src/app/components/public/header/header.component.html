@@ -1,0 +1,16 @@
+<header>
+  <nav dir="rtl">
+    <div class="logo">E-Commerce</div>
+    <button class="menu-toggle" (click)="toggleMenu()">
+      &#9776; <!-- Hamburger icon -->
+    </button>
+    <ul class="nav-links" [class.active]="isMenuActive">
+      <li>
+        <a mat-button routerLinkActive="active" (click)="openLoginDialog()">login</a>
+      </li>
+      <li>
+          <a mat-button routerLinkActive="active"  routerLink="/public/shipping">shipping</a>
+      </li>
+    </ul>
+  </nav>
+</header>
