@@ -49,7 +49,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/user/']);
   }
 
   goToNextProduct(): void {
