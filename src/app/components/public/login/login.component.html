@@ -1,16 +1,59 @@
-<h2 mat-dialog-title>Login / Register</h2>
-<mat-dialog-content>
-  <form #loginForm="ngForm">
-    <mat-form-field>
-      <input matInput placeholder="Username" [(ngModel)]="user.name" name="username" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password" required>
-    </mat-form-field>
-  </form>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close type="button">Cancel</button>
-  <button mat-button color="primary" (click)="login(loginForm)" type="button">Login</button>
-  <button mat-button color="accent" (click)="register(loginForm)" type="button">Register</button>
-</mat-dialog-actions>
+<div class="dialog-container">
+  <!-- Close Button in the Top Right -->
+  <button mat-icon-button mat-dialog-close type="button" class="close-btn" aria-label="Close">
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <!-- Title -->
+  <h2 mat-dialog-title class="dialog-title">Login / Register</h2>
+
+  <!-- Form Content -->
+  <mat-dialog-content>
+    <form [formGroup]="loginForm" class="login-form">
+      <!-- Username Field -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" required autocomplete="off" aria-required="true" />
+        <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+          Username is required.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Password Field with Visibility Toggle -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="password"
+          required
+          autocomplete="off"
+          aria-required="true"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hidePassword = !hidePassword"
+          [attr.aria-label]="'Toggle password visibility'"
+          [attr.aria-pressed]="!hidePassword"
+          type="button"
+        >
+          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+          Password is required.
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+
+  <!-- Action Buttons -->
+  <mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" (click)="login()" [disabled]="loginForm.invalid" type="button">
+      Login
+    </button>
+    <button mat-raised-button color="accent" (click)="register()" [disabled]="loginForm.invalid" type="button">
+      Register
+    </button>
+  </mat-dialog-actions>
+</div>

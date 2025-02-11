@@ -1,109 +1,106 @@
-:host {
-  display: block;
-  max-width: 450px;
-  margin: 2rem auto;
-  padding: 32px;
-  background: rgba(255, 255, 255, 0.85);
+.dialog-container {
+  position: relative;
+  max-width: 500px;
+  padding: 32px 24px;
+  background: #fff;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   font-family: 'Poppins', sans-serif;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+button.close-btn{
+  z-index: 11;
+}
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 16px;
+  cursor: pointer;
+
+  right: 16px;
+  color: #888;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: #333;
+  }
 }
 
-/* Dialog Title Styling */
-mat-dialog-title {
+/* Title Styling */
+.dialog-title {
   text-align: center;
   font-size: 28px;
   font-weight: 700;
+  margin-bottom: 16px;
   color: #333;
-  margin-bottom: 24px;
-  letter-spacing: 0.5px;
 }
 
-/* Dialog Content & Form Styling */
-mat-dialog-content {
-  padding: 0;
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* Form Layout */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-    /* Material Form Field Customizations */
-    mat-form-field {
-      width: 100%;
-      
-      .mat-form-field-flex {
-        background: #f0f0f0;
-        border-radius: 8px;
-        padding: 0 8px;
-      }
-      
-      .mat-input-element {
-        padding: 12px 16px;
-        font-size: 16px;
-        color: #333;
-      }
-      
-      .mat-form-field-underline {
-        display: none;
-      }
-    }
+.full-width {
+  width: 100%;
+}
+
+/* Material Form Field Customization */
+mat-form-field {
+  width: 100%;
+
+  .mat-form-field-flex {
+    background: #f7f7f7;
+    border-radius: 8px;
+  }
+
+  .mat-input-element {
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #333;
   }
 }
 
-/* Dialog Actions Styling */
+/* Action Buttons */
 mat-dialog-actions {
+  margin-top: 24px;
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-  margin-top: 24px;
 
   button {
-    min-width: 110px;
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-weight: 600;
+    min-width: 120px;
+    padding: 10px 16px;
+    font-size: 14px;
     text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.2s ease;
-
+    
     &:hover {
       transform: translateY(-2px);
     }
-
-    /* Default button style (for Cancel) */
-    &:not(.mat-primary):not(.mat-accent) {
-      background: #cccccc;
-      color: #333;
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
-  }
-
-  /* Primary (Login) Button */
-  button.mat-primary {
-    background: #1976d2;
-    color: #fff;
-  }
-
-  /* Accent (Register) Button */
-  button.mat-accent {
-    background: #e91e63;
-    color: #fff;
   }
 }
 
 /* Responsive Adjustments */
 @media (max-width: 480px) {
-  :host {
+  .dialog-container {
     padding: 20px;
     max-width: 90%;
   }
   
-  mat-dialog-title {
+  .dialog-title {
     font-size: 24px;
   }
   
   mat-dialog-actions {
     flex-direction: column;
-    align-items: stretch;
     button {
       width: 100%;
       margin-bottom: 8px;

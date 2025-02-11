@@ -32,8 +32,9 @@ export class HeaderComponent implements OnChanges {
 
   // Opens the login dialog when the login link is clicked
   openLoginDialog(): void {
-    const dialogRef = this.dialog.open(LoginComponent, {
-      width: '80%',  
+    const dialogRef = this.dialog.open(LoginComponent, {  
+      width: 'auto',  
+      height: 'auto',  
       data: {}  
     });
 

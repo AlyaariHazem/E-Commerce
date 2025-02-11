@@ -53,7 +53,8 @@ export class ProductListComponent implements OnInit {
   }
   openLoginDialog(): void {
     this.dialog.open(LoginComponent, {
-      width: '80%',
+      width: 'auto',
+      height: 'auto',
       data: {}
     });
   }

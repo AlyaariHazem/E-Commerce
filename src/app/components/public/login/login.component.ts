@@ -1,10 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface User {
-  name: string;
+  username: string;
   password: string;
 }
 
@@ -13,65 +14,61 @@ export interface User {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
-  user: User = { name: '', password: '' };
+export class LoginComponent implements OnInit {
+  loginForm!: FormGroup;
+  hidePassword = true;
+
+  // Inject services using Angular's inject() helper
   router = inject(Router);
   dialogRef = inject(MatDialogRef<LoginComponent>);
   snackBar = inject(MatSnackBar);
+  fb = inject(FormBuilder);
 
-  // Login: Verify that the user exists and that the credentials match
-  login(loginForm: any): void {
-    if (loginForm.valid) {
-      const { name, password } = this.user;
-      // Retrieve the registered user from localStorage
-      const registeredUserJson = localStorage.getItem('registeredUser');
-      if (registeredUserJson) {
-        const registeredUser: User = JSON.parse(registeredUserJson);
-        if (registeredUser.name === name && registeredUser.password === password) {
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+
+  // Login: Check credentials against localStorage
+  login(): void {
+    if (this.loginForm.valid) {
+      const { username, password } = this.loginForm.value;
+      const storedUser = localStorage.getItem('registeredUser');
+
+      if (storedUser) {
+        const registeredUser: User = JSON.parse(storedUser);
+        if (registeredUser.username === username && registeredUser.password === password) {
           localStorage.setItem('login', 'true');
           this.dialogRef.close();
           this.router.navigate(['/user']);
         } else {
-          this.snackBar.open('Invalid credentials. Please try again.', 'Close', {
-            duration: 3000,
-            horizontalPosition: 'center',
-            verticalPosition: 'top'
-          });
+          this.showMessage('Invalid credentials. Please try again.', 'error');
         }
       } else {
-        this.snackBar.open('No registered user found. Please register first.', 'Close', {
-          duration: 3000,
-          horizontalPosition: 'center',
-          verticalPosition: 'top'
-        });
+        this.showMessage('No registered user found. Please register first.', 'warning');
       }
-    } else {
-      this.snackBar.open('Please fill out all fields correctly.', 'Close', {
-        duration: 3000,
-        horizontalPosition: 'center',
-        verticalPosition: 'top'
-      });
     }
   }
 
-  // Register: Save the user's credentials to localStorage
-  register(loginForm: any): void {
-    if (loginForm.valid) {
-      const { name, password } = this.user;
-      // Save the user credentials as a JSON string in localStorage
-      const userData: User = { name, password };
+  // Register: Save credentials to localStorage
+  register(): void {
+    if (this.loginForm.valid) {
+      const { username, password } = this.loginForm.value;
+      const userData: User = { username, password };
       localStorage.setItem('registeredUser', JSON.stringify(userData));
-      this.snackBar.open('User registered successfully. You can now login.', 'Close', {
-        duration: 3000,
-        horizontalPosition: 'center',
-        verticalPosition: 'top'
-      });
-    } else {
-      this.snackBar.open('Please fill out all fields correctly.', 'Close', {
-        duration: 3000,
-        horizontalPosition: 'center',
-        verticalPosition: 'top'
-      });
+      this.showMessage('User registered successfully. You can now login.', 'success');
     }
+  }
+
+  // Display a snackbar message
+  private showMessage(message: string, type: 'success' | 'error' | 'warning'): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      panelClass: type
+    });
   }
 }
